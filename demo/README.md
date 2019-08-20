@@ -42,7 +42,7 @@ module.exports = {
     [
       "react-intl",
       {
-        "messagesDir": "./build/messages/"
+        "messagesDir": "i18n-messages"
       }
     ]
   ]
