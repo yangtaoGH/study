@@ -80,3 +80,9 @@ module.exports = {
     }
   ```
   ** 导出的文件夹目录就是当前项目的src下的locales文件下的zh.json跟en.json文件
+
+  在ie9下的时候，会出现img为空的时候，设置css样式将其进行透明度设置成0，从而不显示图片信息
+  img[src=""],
+  img:not([src]) {
+     opacity:0;
+  }

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './iconfont/iconfont.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 // addLocaleData这个方法已经在React Intl v3上弃用了
@@ -10,6 +11,8 @@ import * as zh from 'react-intl/locale-data/zh';
 import * as en from 'react-intl/locale-data/en';
 import en_US from './locales/en_US'
 import zh_CN from './locales/zh_CN';
+// 引入该方法，绑定到全局window上，然后在钩子函数中调用该方法
+import IePlaceholder from './utils/iePlaceholder';
 
 // 全局window对象
 declare global {
@@ -20,13 +23,16 @@ declare global {
             version: string,
             lang: string,
             optimization:string
-        }
+        },
+        // 声明函数的方法
+        IePlaceholder():void
     }
 }
 
+window.IePlaceholder = IePlaceholder;
+
 let lang = "zh";
 let i18nData = zh_CN;
-
 window.bsysinfo = window.bsysinfo || {}
 if(window.bsysinfo.lang === "en"){
     lang = "en";
